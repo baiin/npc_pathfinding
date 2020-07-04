@@ -167,15 +167,13 @@ func a_star():
 func _physics_process(delta):
 	if has_path && path.size() > 0:
 		var target = path[0]
-		
-		
-		print(target.position, player.position)
+		var origin = player.get_node("Position2D").get_global_position()
 		
 		var vector = Vector2.ZERO
-		var distance = get_distance(player.position, target.position);
+		var distance = get_distance(origin, target.position);
 		
 		if distance > ACCEPTABLE_DISTANCE:
-			vector = (target.position - player.position).normalized()
+			vector = (target.position - origin).normalized()
 			player.move_and_collide(vector * SPEED * delta)	
 			animation_state.travel("Walk")
 			animation_tree.set("parameters/Idle/blend_position", vector)
