@@ -122,7 +122,6 @@ func remove_cell(set, item):
 	return set
 	
 func a_star():
-	player.position = grid[0][0].position
 	opened_set.push_back(grid[0][0])
 	
 	while opened_set.size() > 0:
@@ -168,7 +167,6 @@ func _physics_process(delta):
 	if has_path && path.size() > 0:
 		var target = path[0]
 		var origin = player.get_node("Position2D").get_global_position()
-		
 		var vector = Vector2.ZERO
 		var distance = get_distance(origin, target.position);
 		
@@ -180,7 +178,7 @@ func _physics_process(delta):
 			animation_tree.set("parameters/Walk/blend_position", vector)
 		else:
 			animation_state.travel("Idle")
-			path.remove(0)
+			path.pop_front()
 			player.move_and_collide(Vector2.ZERO)
 	else:
 		animation_state.travel("Idle")

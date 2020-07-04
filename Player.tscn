@@ -3,8 +3,8 @@
 [ext_resource path="res://sprites/characters/Martha_Blonde.png" type="Texture" id=1]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 5.97003
-height = 1.31021
+radius = 3.34769
+height = 5.21502
 
 [sub_resource type="Animation" id=2]
 resource_name = "IdleDown"
@@ -205,13 +205,14 @@ start_node = "Idle"
 [node name="Player" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -9.20042 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 6
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.133381, 3.46787 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -235,4 +236,4 @@ parameters/Idle/blend_position = Vector2( 0, 0.164368 )
 parameters/Walk/blend_position = Vector2( 0, 0.00421453 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -16, -8 )
+position = Vector2( -16.2668, -12.2654 )
